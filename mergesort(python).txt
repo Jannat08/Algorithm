@@ -1,0 +1,38 @@
+def  merge_sort(arr1,arr2):
+    i=j=0;
+    merged=[]
+    while i<len(arr1) and j<len(arr2):
+        if (arr1[i]<arr2[j]):
+            merged.append(arr1[i])
+            i=i+1
+        else:
+            merged.append(arr2[j])
+            j=j+1
+            
+    while i<len(arr1):
+        merged.append(arr1[i])
+        i=i+1
+    while j<len(arr2):
+        merged.append(arr2[j])
+        j=j+1    
+    
+    return merged
+    
+def divide_arr(arr4):
+    
+    if len(arr4)==1:
+        return arr4
+    else:
+        mid = int(len(arr4)/2)
+        left=arr4[:mid]
+        right=arr4[mid:]
+        print(left)
+        print(right)  
+        arr6=divide_arr(left)
+        arr7=divide_arr(right)
+        print(merge_sort(arr6,arr7))
+        return merge_sort(arr6,arr7)
+        
+arr1=[12,3,4,11,2,9,8,7]
+arr3=divide_arr(arr1)
+print(arr3)
